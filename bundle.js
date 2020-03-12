@@ -1,68 +1,57 @@
 "use strict";
 
-// Declarar variáveis em ES6+
+// Operações com Array em ES6+
+var array = [1, 3, 4, 5, 8, 9]; // Percorre todos itens do vetor e executa determinada ação para ele com retorno
 
+var novoArray = array.map(function (item, index) {
+  return item + index;
+});
+console.log(novoArray); // Reduce: consumir todo o vetor e transformar em uma única informação (geralmente numero)
+
+var soma = array.reduce(function (total, proximoValor) {
+  return total + proximoValor;
+});
+console.log(soma);
 /*
-    const: cria uma variável do tipo constante. 
-
-    Só poderá alterar o valor definido inicialmene
-    atraves de mutações (em objetos ou arrays).
+    Execução:
+    total: 0 proximo: 1
+    total: 1 proximo: 3
+    total: 4 proximo: 4
 */
-var nomeVariavel = "Joao"; // objeto
+// Filter: filtrar somente os itens que queremos
 
-var usuario = {
-  nome: 'Jesus',
-  idade: 26
-}; //usuario = { nome: 'Maria', idade: 30 }; // Vai dar erro
-// Permite a mutação do objeto mas não a substituição
+var filterPares = array.filter(function (item) {
+  /*if (item % 2 === 0) {
+      return true;
+  } else {
+      return false;
+  }*/
+  return item % 2 === 0;
+});
+var usuarios = [{
+  nome: 'Usuario 1',
+  idade: 10
+}, {
+  nome: 'Usuario 2',
+  idade: 15
+}, {
+  nome: 'Usuario 3',
+  idade: 18
+}];
+var novosUsuarios = usuarios.filter(function (usuario) {
+  return usuario.idade >= 15;
+});
+console.log(filterPares); // Find
 
-usuario.nome = 'Maria';
-var meuVetor = [1, 2, 3, 4, 5]; //meuVetor = [90, 93]; // Vai dar erro
-// Permite a mutação do array através das alterações nos indices
+var find = usuarios.find(function (item) {
+  return item.nome === 'Usuario 1';
+});
 
-meuVetor[0] = 90;
-meuVetor[2] = 93;
-console.log(usuario);
-console.log(meuVetor); // Variável do tipo let
-
-var valor = 3;
-var nome = 'Claudia Let';
-var altura = 1.86;
-var contemValor = true; //console.log()
-// escopo A
-
-if (true) {// escopo B
-}
-
-function somar() {// escopo C
-}
-
-for (var i = 0; i < 5; i++) {
-  // escopo D
-  var teste = 'Maria';
-} // escopo A
+if (find) {
+  console.log(find);
+} // forEach
 
 
-var exibirMensagem = function exibirMensagem() {
-  // Hoisting
-  console.log(mensagem);
-  var mensagem = 'Minha mensagem';
-  console.log(mensagem);
-};
-
-exibirMensagem();
-
-function exibirMensagem2() {
-  // escopo E
-  if (true) {
-    // escopoF
-    var _escopoFuncao = 'Teste';
-    var _escopoBloco = 'Teste 2';
-    console.log(_escopoBloco);
-  }
-
-  console.log(escopoFuncao);
-  console.log(escopoBloco);
-}
-
-exibirMensagem2();
+usuarios.forEach(function (item, index) {
+  console.log(item);
+});
