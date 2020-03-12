@@ -7,19 +7,29 @@ const usuario = {
     }
 };
 
-/*console.log(usuario);
+// REST
+const { nome, ...resto } = usuario;
 
-let nome = usuario.nome;
-let idade = usuario.idade;
-let cidade = usuario.endereco.cidade;
+console.log(nome);
+console.log(resto);
 
-console.log(nome, idade, cidade);*/
+const array = [1, 2, 3, 4];
+const array2 = [5, 6, 7];
 
-const { nome, idade, endereco: { cidade } } = usuario;
-console.log(nome, idade, cidade);
+const [ primeiro, segundo, ...restante ] = array;
 
-function mostrarNome({ nome, idade }) {
-    console.log(nome, idade)
+console.log(primeiro, segundo);
+console.log(restante);
+
+function soma(...parametros) {
+    return parametros.reduce((total, next) => total + next);
 }
 
-mostrarNome(usuario);
+console.log(soma(1, 3, 6, 9, 1, 11));
+
+const novoArray = [ ...array, ...array2 ];
+console.log(novoArray);
+
+const usuario2 = { ...usuario, nome: 'Maria Carolina' };
+
+console.log(usuario2);
