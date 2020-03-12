@@ -1,35 +1,38 @@
-// Operações com Array em ES6+
+// Arrows Functions
 const array = [1, 3, 4, 5, 8, 9];
 
-// Percorre todos itens do vetor e executa determinada ação para ele com retorno
-const novoArray = array.map(function (item, index) {
-    return item + index;
-});
 
-console.log(novoArray);
+const novoArray = array.map(item => item * 2);
 
-// Reduce: consumir todo o vetor e transformar em uma única informação (geralmente numero)
-const soma = array.reduce(function (total, proximoValor) {
-    return total + proximoValor;
-});
-
-console.log(soma);
 
 /*
-    Execução:
-    total: 0 proximo: 1
-    total: 1 proximo: 3
-    total: 4 proximo: 4
+    1. Remove a keyword function
+    2. Colocar a flecha => entre o parentese e a chave
+    3. A função recebe parâmetro?
+        Sim
+            3.1 remove o parentese por volta do parametro
+            3.2 a função retorna apenas uma informação (1 linha retorno)
+            3.3 colocar diretamente depois da flecha (sem chaves)
 */
 
+const teste = () => {
+    console.log('oi'); // NÃO É RECOMENDADO FAZER ISSO!!!!!!!!!!
+}
+
+const teste2 = () => [1, 2, 3]; // retorna um array 
+
+const teste3 = () => ({ nome: 'Joao das Neves', idade: 10 });
+
+
+
+
+//Reduce: consumir todo o vetor e transformar em uma única informação (geralmente numero)
+const soma = array.reduce((total, proximoValor) => total + proximoValor);
+
+console.log(soma);
+/*
 // Filter: filtrar somente os itens que queremos
 const filterPares = array.filter(function (item) {
-    /*if (item % 2 === 0) {
-        return true;
-    } else {
-        return false;
-    }*/
-    
     return item % 2 === 0;
 });
 
@@ -55,6 +58,6 @@ if (find) {
 }
 
 // forEach
-usuarios.forEach(function (item, index) {
+usuarios.forEach(function (item, i) {
     console.log(item);
-});
+});*/
