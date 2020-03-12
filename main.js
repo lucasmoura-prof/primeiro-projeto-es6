@@ -35,7 +35,6 @@ class Matematica {
 const minhaLista = new TodoList();
 console.log(Matematica.soma(5, 7));
 
-
 document.getElementById('novotodo').onclick = function () {
     minhaLista.add('Qualquer coisa');
 }
